@@ -1,5 +1,6 @@
 package com.example.multithreadcodesample.domain.asset.model.entity;
 
+import com.example.multithreadcodesample.common.base.BaseEntity;
 import com.example.multithreadcodesample.domain.brand.model.entity.Brand;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,10 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name= "asset")
-public class Asset {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+public class Asset extends BaseEntity {
 
     private String name;
 

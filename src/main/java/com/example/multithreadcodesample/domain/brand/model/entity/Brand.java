@@ -1,5 +1,6 @@
 package com.example.multithreadcodesample.domain.brand.model.entity;
 
+import com.example.multithreadcodesample.common.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.StandardException;
@@ -9,18 +10,14 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table(name = "brand")
-public class Brand  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+public class Brand extends BaseEntity {
+    @Column
     private String name;
-
+    @Column(name = "asset_number")
     private int assetNumber;
-
+    @Column(name = "styling_number")
     private int stylingNumber;
-
-    private int likes;
+    @Column(name = "like_number")
+    private int likeNumber;
 
 }

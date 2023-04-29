@@ -29,7 +29,6 @@ public abstract class BaseEntity implements Serializable {
         BaseEntity entity = (BaseEntity) o;
 
         return entity.id == this.id && Objects.equals(createdAt, entity.createdAt);
-
     }
 
     @Override
