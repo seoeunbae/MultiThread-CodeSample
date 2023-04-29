@@ -1,6 +1,8 @@
 package com.example.multithreadcodesample.common.base;
 
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,9 +18,11 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "is_enabled")
     private Boolean isEnabled = true;
 
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

@@ -15,8 +15,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class Styling extends BaseEntity {
-    @Column(name = "like_number")
-    private int likes;
+
     @ManyToOne
     @Column(name = "brand_id")
     private Brand brand;
