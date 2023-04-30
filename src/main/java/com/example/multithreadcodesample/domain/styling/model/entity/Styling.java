@@ -6,10 +6,7 @@ import com.example.multithreadcodesample.domain.user.model.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -17,14 +14,15 @@ import javax.persistence.Table;
 public class Styling extends BaseEntity {
 
     @ManyToOne
-    @Column(name = "brand_id")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
     @Column(length = 300)
     private String text;
     @Column(name = "is_archived")
     private Boolean isArchived;
-
+    @Column(name = "like_number")
+    private int likeNumber;
 }

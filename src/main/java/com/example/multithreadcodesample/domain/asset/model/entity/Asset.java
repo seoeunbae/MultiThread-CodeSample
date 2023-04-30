@@ -1,11 +1,9 @@
 package com.example.multithreadcodesample.domain.asset.model.entity;
 
 import com.example.multithreadcodesample.common.base.BaseEntity;
-import com.example.multithreadcodesample.common.base.LikeBaseEntity;
 import com.example.multithreadcodesample.domain.brand.model.entity.Brand;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import javax.persistence.*;
 
@@ -13,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name= "asset")
-public class Asset extends LikeBaseEntity {
+public class Asset extends BaseEntity {
     @Column
     private String name;
 
@@ -26,4 +24,7 @@ public class Asset extends LikeBaseEntity {
 
     @Column(name = "is_archived")
     private boolean isArchived;
+
+    @Column(name = "like_number")
+    private int likeNumber;
 }
