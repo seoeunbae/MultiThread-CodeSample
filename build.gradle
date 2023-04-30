@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation group: 'org.springframework', name: 'spring-web', version: '4.3.11.RELEASE'
     compileOnly 'org.projectlombok:lombok'
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
