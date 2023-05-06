@@ -19,7 +19,8 @@ public class FollowingService {
     }
 
     public void unfollowing(Long unfollowingUserId, User user){
-
+        User unfollowingUser = userRepository.findUserById(unfollowingUserId).orElseThrow(()->new RuntimeException("해당사용자가 존재하지않습니다."));
+        Following following = new Following(user, unfollowingUser );
     }
 
 
