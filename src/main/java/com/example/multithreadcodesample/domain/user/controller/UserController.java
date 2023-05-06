@@ -12,13 +12,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("/follow")
-    public void follow(){
 
-    }
-
-    @PostMapping("/unfollow")
-    public void unfollow(){
-
-    }
 }
