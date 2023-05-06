@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class FollowingService {
-
     UserRepository userRepository;
 
     public void following(Long followingUserId, User user){
