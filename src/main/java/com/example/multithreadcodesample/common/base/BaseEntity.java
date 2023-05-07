@@ -1,5 +1,7 @@
 package com.example.multithreadcodesample.common.base;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @MappedSuperclass
+@Getter
+@Setter
 public abstract class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
