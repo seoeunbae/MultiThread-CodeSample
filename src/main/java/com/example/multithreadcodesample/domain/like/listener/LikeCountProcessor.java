@@ -17,12 +17,12 @@ public class LikeCountProcessor {
     private final StylingRepository stylingRepository;
     private final BrandRepository brandRepository;
 
-    public void increment(){
-
+    public void increment(long targetId, Like.TargetType targetType){
+        changeLikeCount(targetId, targetType, 1);
     }
 
-    public void decrement(){
-
+    public void decrement(long targetId, Like.TargetType targetType){
+        changeLikeCount(targetId, targetType, -1);
     }
 
     private void changeLikeCount(long targetId, Like.TargetType targetType, int changeLikeValue) {
