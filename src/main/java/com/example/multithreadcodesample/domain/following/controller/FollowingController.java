@@ -16,14 +16,14 @@ public class FollowingController {
     private final FollowingService followingService;
     @PostMapping("/follow/{following-user-id}")
     public void follow(@PathVariable(name = "following-user-id") final Long followingUserId,
-                       @AuthenticationPrincipal User user
+                       @AuthenticationPrincipal final User user
     ){
         followingService.following(followingUserId, user);
     }
 
     @PostMapping("/unfollow")
     public void unfollow(@PathVariable(name = "unfollowing-user-id") final Long unfollowingUserId,
-                         @AuthenticationPrincipal User user
+                         @AuthenticationPrincipal final User user
     ){
         followingService.unfollowing(unfollowingUserId, user);
     }
