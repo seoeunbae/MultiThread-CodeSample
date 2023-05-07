@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Following extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

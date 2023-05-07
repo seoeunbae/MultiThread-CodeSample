@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryCustom {
     Optional<User> findUserById(Long id);
+
+    Optional<User> findUserByIdAndIsEnabledTrue(Long id);
 }

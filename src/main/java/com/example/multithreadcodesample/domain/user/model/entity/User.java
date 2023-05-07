@@ -15,4 +15,10 @@ import javax.persistence.Table;
 public class User extends BaseEntity {
     @Column
     private String name;
+
+    @Column
+    private Integer following;
+
+    @Column
+    private Integer follower;
 }
