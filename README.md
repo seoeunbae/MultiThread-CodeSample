@@ -1,11 +1,13 @@
 # MultiThread-CodeSample
 
+- ```Effective Java```를 참고하며...
+
 <br/>
 <br/>
 
  **💡들어가기 전에 주의 사항💡**
-
-> 스레드로 직접 작업하는 것을 삼가자. 
+ 
+> 스레드로 직접 작업하는 것을 삼가야한다고 한다. 
 > - -> Executor 프레임워크를 사용함으로써, **작업의 유닛과 스레드풀 Execution 매커니즘이 독립적으로 유지**될 수 있도록 하자.
 
 
@@ -14,7 +16,7 @@
 
 
 ## 1. ThreadPoolExecutor의 선택
-   - ```Effective Java```를 참고하며...
+   
 
 작고 가벼운 서비스에서는
 ```Executors.newCachedThreadPool```
