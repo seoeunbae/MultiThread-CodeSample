@@ -43,7 +43,7 @@
 
 ### Thread interface 의 종류
 
-1. ```Runnable```
+1. ```Runnable``` (Thread 클래스의 간소화된 형태)
 2. ```Callable``` (Runnable과 유사/반환값이 있고, 임의의 예외 throw 가능!)
 
 <br/>
