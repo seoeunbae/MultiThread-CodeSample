@@ -4,16 +4,12 @@ import com.example.multithreadcodesample.common.base.BaseControllerTest;
 import com.example.multithreadcodesample.domain.following.model.entity.Following;
 import com.example.multithreadcodesample.domain.following.repository.FollowingRepository;
 import com.example.multithreadcodesample.domain.user.model.entity.User;
-import com.fasterxml.jackson.databind.ser.Serializers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvcBuilder;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.ContentResultMatchers;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
