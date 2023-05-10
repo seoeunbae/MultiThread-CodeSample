@@ -10,21 +10,23 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.procedure.NoSuchParameterException;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class FollowingService {
-    UserRepository userRepository;
-    FollowingRepository followingRepository;
+    private final UserRepository userRepository;
+    private final FollowingRepository followingRepository;
 
-    FollowingThreadPoolResolver threadPoolResolver;
+    private final FollowingThreadPoolResolver threadPoolResolver;
 
-    List<FollowingEventListener> listeners;
+    private final  List<FollowingEventListener> listeners;
 
-    public void following(Long followingUserId, User user){
+    public void following(Long followingUserId, Long userId){
         Optional<Following> optionalFollowing = followingRepository.findFollowingById(followingUserId);
 
         if(optionalFollowing.isPresent()){
@@ -35,21 +37,22 @@ public class FollowingService {
                 followingRepository.save(following);
 
                 CompletableFuture.runAsync(
-                        () -> listeners.forEach(listener -> listener.onFollow(user.getId(), followingUserId)),
+                        () -> listeners.forEach(listener -> listener.onFollow(userId, followingUserId)),
                         threadPoolResolver.get(true)
                 );
             }
         } else {
             final User followingUser = userRepository.findUserByIdAndIsEnabledTrue(followingUserId).orElseThrow(() -> new NoSuchParameterException("해당하는 유저아이디가 존재하지않습니다."));
+            final User user = userRepository.findUserByIdAndIsEnabledTrue(userId).orElseThrow(() -> new NoSuchParameterException("해당하는 유저아이디가 존재하지않습니다."));
            followingRepository.save(new Following(user, followingUser));
            CompletableFuture.runAsync(
-                   () -> listeners.forEach( listener -> listener.onFollow(user.getId(), followingUserId)),
+                   () -> listeners.forEach( listener -> listener.onFollow(userId, followingUserId)),
                    threadPoolResolver.get(true)
            );
         }
     }
 
-    public void unfollowing(Long unfollowingUserId, User user){
+    public void unfollowing(Long unfollowingUserId, Long userId){
        Optional<Following> optionalFollowing = followingRepository.findFollowingById(unfollowingUserId);
 
         if(optionalFollowing.isPresent()){
@@ -60,10 +63,10 @@ public class FollowingService {
                 followingRepository.save(following);
 
                 CompletableFuture.runAsync(
-                        () -> listeners.forEach(listener -> listener.onUnFollow(user.getId(), unfollowingUserId)),
+                        () -> listeners.forEach(listener -> listener.onUnFollow(userId, unfollowingUserId)),
                                 threadPoolResolver.get(false)
                 );
             }
-        }
+        } else throw new RuntimeException("해당 팔로잉은 존재하지 않습니다.");
     }
 }

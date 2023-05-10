@@ -4,27 +4,25 @@ import com.example.multithreadcodesample.domain.following.service.FollowingServi
 import com.example.multithreadcodesample.domain.user.model.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Parameter;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 public class FollowingController {
     private final FollowingService followingService;
-    @PostMapping("/follow/{following-user-id}")
+    @PostMapping("/follow/{user-id}/{following-user-id}")
+    @ResponseBody
     public void follow(@PathVariable(name = "following-user-id") final Long followingUserId,
-                       @AuthenticationPrincipal final User user
+                       @PathVariable(name = "user-id") final Long userId
     ){
-        followingService.following(followingUserId, user);
+        followingService.following(followingUserId, userId);
     }
 
-    @PostMapping("/unfollow")
+    @PostMapping("/unfollow/{user-id}/{unfollowing-user-id}")
+    @ResponseBody
     public void unfollow(@PathVariable(name = "unfollowing-user-id") final Long unfollowingUserId,
-                         @AuthenticationPrincipal final User user
+                         @PathVariable(name = "user-id") final Long userId
     ){
-        followingService.unfollowing(unfollowingUserId, user);
+        followingService.unfollowing(unfollowingUserId, userId);
     }
 }
