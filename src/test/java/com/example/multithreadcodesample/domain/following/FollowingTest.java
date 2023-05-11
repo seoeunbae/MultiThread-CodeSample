@@ -36,11 +36,8 @@ public class FollowingTest extends BaseControllerTest {
     @DisplayName("팔로잉 - 성공")
     public void followingUser() throws Exception {
         User user1 = createMockUser1(); //1
-
         User user2 = createMockUser2(); //2
 
-        System.out.println(user1.getId());
-        System.out.println(user2.getId());
         mockMvc.perform(MockMvcRequestBuilders.post("/follow/1/2").accept(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());

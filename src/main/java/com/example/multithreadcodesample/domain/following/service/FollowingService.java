@@ -6,6 +6,7 @@ import com.example.multithreadcodesample.domain.following.repository.FollowingRe
 import com.example.multithreadcodesample.domain.user.model.entity.User;
 import com.example.multithreadcodesample.domain.user.repository.UserRepository;
 import com.example.multithreadcodesample.domain.user.service.UserService;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.procedure.NoSuchParameterException;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class FollowingService {
 
     private final  List<FollowingEventListener> listeners;
 
-    public void following(Long followingUserId, Long userId){
+    public void following(@NonNull Long followingUserId, @NonNull Long userId){
         Optional<Following> optionalFollowing = followingRepository.findFollowingById(followingUserId);
 
         if(optionalFollowing.isPresent()){
@@ -52,7 +53,7 @@ public class FollowingService {
         }
     }
 
-    public void unfollowing(Long unfollowingUserId, Long userId){
+    public void unfollowing(@NonNull Long unfollowingUserId, @NonNull Long userId){
        Optional<Following> optionalFollowing = followingRepository.findFollowingById(unfollowingUserId);
 
         if(optionalFollowing.isPresent()){
