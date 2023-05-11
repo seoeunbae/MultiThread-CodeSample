@@ -1,6 +1,6 @@
 # MultiThread-CodeSample
-
-- ```Effective Java```를 참고하며...
+- 멀티쓰레드로직을 샘플링함으로, 인턴 프로젝트를 회고합니다.
+- ```Effective Java```참고
 
 <br/>
 <br/>
