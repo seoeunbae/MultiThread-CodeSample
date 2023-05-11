@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -28,11 +31,14 @@ public class FollowingCountProcessor {
                 userRepository.findUserByIdAndIsEnabledTrue(followingId);
 
         if (followerOptional.isPresent() && followingOptional.isPresent()) {
-            final User follower = followerOptional.get();
-            final User following = followingOptional.get();
+            User follower = followerOptional.get();
+            AtomicInteger followerFollowing = new AtomicInteger(follower.getFollowing());
 
-            follower.setFollowing(follower.getFollowing() + addValue);
-            following.setFollower(following.getFollower() + addValue);
+            User following = followingOptional.get();
+            AtomicInteger followingFollower = new AtomicInteger(following.getFollower());
+
+            follower.setFollowing(followerFollowing.addAndGet(addValue));
+            following.setFollower(followingFollower.addAndGet(addValue));
 
             userRepository.save(follower);
             userRepository.save(following);
