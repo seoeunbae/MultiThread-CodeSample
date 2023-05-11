@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -30,21 +32,22 @@ public class LikeCountProcessor {
             case ASSET:
                 assetRepository.findById(targetId)
                         .ifPresent(assetPrototype -> {
-                            assetPrototype.setLikeNumber(assetPrototype.getLikeNumber() + changeLikeValue);
+
+                            assetPrototype.setLikeNumber(new AtomicInteger(assetPrototype.getLikeNumber()).addAndGet(changeLikeValue));
                             assetRepository.save(assetPrototype);
                         });
                 break;
             case STYLING:
                 stylingRepository.findById(targetId)
                         .ifPresent(styling -> {
-                            styling.setLikeNumber(styling.getLikeNumber() + changeLikeValue);
+                            styling.setLikeNumber(new AtomicInteger(styling.getLikeNumber()).addAndGet(changeLikeValue));
                             stylingRepository.save(styling);
                         });
                 break;
             case BRAND:
                 brandRepository.findById(targetId)
                         .ifPresent(brand -> {
-                            brand.setLikeNumber(brand.getLikeNumber() + changeLikeValue);
+                            brand.setLikeNumber(new AtomicInteger(brand.getLikeNumber()).addAndGet(changeLikeValue));
                             brandRepository.save(brand);
                         });
                 break;
