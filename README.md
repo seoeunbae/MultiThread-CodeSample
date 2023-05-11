@@ -35,7 +35,7 @@
 
 ### a. ```Executors.newFixedThreadPool```사용하기
 - -> 고정된 개수의 스레드를 사용하는 풀이다.
-### b. ```ThreadPoolExecutor```를 직접 사용  ✅
+### b. ```ThreadPoolExecutor```를 사용  ✅
 
 <br/>
 <br/>
