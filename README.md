@@ -6,11 +6,6 @@
 <br/>
 <br/>
 
-
-
-
-
-
 ## 1. ThreadPoolExecutor의 선택
    
 **💡멀티쓰레드 주의 사항💡**
@@ -62,3 +57,6 @@
 - Future의 구현체로, 추가 여러 기능들도 지원한다.
 - 정적 메서드인 runAsync와 supplyAsync를 사용하면, 각각 Runnable과 Supplier 함수형의 CompletableFuture 인스턴스를 생성할 수 있습니다.
 - 람다 형식을 통해 반환값을 줄 수 있다.
+
+
+# 기능 요구 사항
