@@ -33,11 +33,11 @@
 <br/>
 <br/>
 
-# 어플리케이션 구조도
+# 📍 어플리케이션 구조도
 
 <br/>
 
-[Multithread_codesample_flowchart.pdf](https://github.com/seoeunbae/MultiThread-CodeSample/files/11483394/Multithread_codesample_flowchart.pdf)
+![Untitled Diagram](https://github.com/seoeunbae/MultiThread-CodeSample/assets/71380240/d68bec61-c39b-42cd-b379-579bbe57dea0)
 
 <br/>
 <br/>
