@@ -33,6 +33,16 @@
 <br/>
 <br/>
 
+# 어플리케이션 구조도
+
+<br/>
+
+[Multithread_codesample_flowchart.pdf](https://github.com/seoeunbae/MultiThread-CodeSample/files/11483394/Multithread_codesample_flowchart.pdf)
+
+<br/>
+<br/>
+
+
 ## 1️⃣ ThreadPoolExecutor의 선택
    
 **💡멀티쓰레드 주의 사항💡**
