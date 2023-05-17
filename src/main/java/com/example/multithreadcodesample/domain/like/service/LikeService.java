@@ -42,7 +42,7 @@ public class LikeService {
             }
         } else {
             User user = userRepository.findUserByIdAndIsEnabledTrue(userId).orElseThrow(() -> new RuntimeException("해당 유저가 존재하지 않습니다."));
-            Like like =likeRepository.save(new Like(user, targetId, targetType));
+            Like like = likeRepository.save(new Like(user, targetId, targetType));
             CompletableFuture.runAsync(
                     () -> listeners.forEach(listener -> listener.onLike(like)),
                     threadPoolResolver.get(targetType)
