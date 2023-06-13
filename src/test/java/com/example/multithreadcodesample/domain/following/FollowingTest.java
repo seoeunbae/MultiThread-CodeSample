@@ -35,8 +35,8 @@ public class FollowingTest extends BaseControllerTest {
     @Test
     @DisplayName("팔로잉 - 성공")
     public void followingUser() throws Exception {
-        User user1 = createMockUser1(); //1
-        User user2 = createMockUser2(); //2
+        User user1 = createMockUser1(); 
+        User user2 = createMockUser2();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/follow/1/2").accept(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
