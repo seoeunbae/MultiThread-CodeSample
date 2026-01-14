@@ -1,4 +1,4 @@
-# P.-CodeSample
+# MultiThread-CodeSample
 과거(P사) 프로젝트 중 멀티스레드 로직을 기록합니다.
 
 - [1. 기능 상세](#📑-기능-요구-사항)
